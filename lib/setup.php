@@ -66,6 +66,24 @@ function widgets_init() {
   ]);
 
   register_sidebar([
+    'name'          => __('Home bottom', 'sage'),
+    'id'            => 'sidebar-homebottom',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Home top', 'sage'),
+    'id'            => 'sidebar-hometop',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
     'name'          => __('Footer', 'sage'),
     'id'            => 'sidebar-footer',
     'before_widget' => '<section class="widget %1$s %2$s">',
@@ -97,6 +115,7 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
+  wp_enqueue_style( 'google_fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic', false, null );
   wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
 
   if (is_single() && comments_open() && get_option('thread_comments')) {

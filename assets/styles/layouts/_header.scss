@@ -1,0 +1,60 @@
+header.banner {
+    background-color: #333639;
+    padding: 20px 0 25px;
+    display: block;
+}
+header.f-nav{
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px 0px 5px 1px #222;
+}
+header.banner a {
+    color: #fff;
+    text-decoration: none;
+}
+header.banner a.brand {
+    float: left;
+    font-size: 0;
+    color: #333639;
+    margin-right: 40px;
+}
+nav.nav-primary {
+    float: left;
+    margin-top: 15px;
+}
+nav.nav-primary li {
+    float: left;
+}
+nav.nav-primary li a {
+    color: #fff;
+    text-transform: uppercase;
+    font-family: $brand-font;
+    font-weight: 400;
+    background: none;
+}
+nav.nav-primary li a:hover,
+nav.nav-primary li a:focus,
+nav.nav-primary li a:visited {
+    background: none;
+}
+nav.nav-primary li a:hover:after {
+    content: " ";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+.phone {
+    float: right;
+    line-height: 1.7em;
+}
+.phone .tel {
+    font-size: 1.4em;
+}
+.callme_viewform {
+    padding: 0 6px 2px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}

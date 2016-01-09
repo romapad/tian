@@ -19,6 +19,18 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+
+            var nav = $('header.banner');
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 60) {
+                    //nav.addClass("f-nav");
+                    nav.addClass("f-nav").fadeIn().animate({paddingBottom:"15px", paddingTop: "10px"}, 200);
+                } else {
+                    //nav.removeClass("f-nav");
+                    nav.removeClass("f-nav").animate({paddingBottom:"25px", paddingTop: "20px"}, 200);
+                }
+            });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
