@@ -32,7 +32,6 @@ nav.nav-primary li a {
     font-family: $brand-font;
     font-weight: 400;
     background: none;
-    font-size: 13px;
 }
 nav.nav-primary li a:hover,
 nav.nav-primary li a:focus,
@@ -49,7 +48,7 @@ nav.nav-primary li a:hover:after {
 }
 .phone {
     float: right;
-    line-height: 1.8em;
+    line-height: 1.7em;
 }
 .phone .tel {
     font-size: 1.4em;
