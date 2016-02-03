@@ -1,0 +1,41 @@
+.hometop,
+.homebottom  {
+    @include clearfix;
+}
+.hometop section,
+.homebottom section {
+    float: left;
+    width: 20%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+.hometop section h3 {
+    font-size: 20px;
+    margin-bottom: 0; 
+}
+.homebottom section:first-child {
+    width: 45%;
+}
+.homebottom section:last-child {
+    width: 55%;
+}
+.homebottom section h3 {
+    color: $brand-primary;
+    font-size: 48px;
+    font-weight: 300;
+    display: inline-block;
+    margin: 30px auto;
+}
+.homebottom section h3:after {
+    content: " ";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-color: #fff;
+    margin: 10px auto;
+}
+.homebottom section ul li {
+    list-style-type: none;
+}

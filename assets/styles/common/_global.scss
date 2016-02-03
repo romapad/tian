@@ -1,0 +1,31 @@
+body {
+    color: #333639;
+    font-family: $brand-font;
+    background-color: #d7dce2;
+}
+h1 {
+    color: $brand-primary;
+    font-size: 48px;
+    text-align: center;
+    font-weight: 300;
+}
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.page-header {
+    border-bottom: none;
+    text-align: center;
+}
+.page-header h1 {
+    display: inline-block;
+}
+.page-header h1:after {
+    content: " ";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-color: #fff;
+    margin: 20px auto;
+}
