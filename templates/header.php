@@ -10,8 +10,9 @@
       ?>
     </nav>
     <div class="phone">
-        <a href="tel:+7(495)781-90-93" class="tel">+7(495)781-90-93</a><br>
-        <a class="callme_viewform"><small>Заказать обратный звонок</small></a>
+        <a href="tel:+7(495)781-90-93" class="tel">+7 (495) 781-90-93</a><br>
+        <a class="callme_viewform head_but"><small>Заказать обратный звонок</small></a><br>
+        <a class="jivo_but head_but"><small>Задать вопрос специалисту</small></a>
     </div>
   </div>
 </header>
