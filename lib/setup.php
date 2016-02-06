@@ -57,8 +57,17 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
  */
 function widgets_init() {
   register_sidebar([
-    'name'          => __('Primary', 'sage'),
-    'id'            => 'sidebar-primary',
+    'name'          => __('About', 'sage'),
+    'id'            => 'sidebar-about',
+    'before_widget' => '<section class="widget %1$s %2$s col-md-4">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Home Left', 'sage'),
+    'id'            => 'sidebar-homeleft',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
@@ -66,17 +75,8 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Home bottom', 'sage'),
-    'id'            => 'sidebar-homebottom',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
-  ]);
-
-  register_sidebar([
-    'name'          => __('Home top', 'sage'),
-    'id'            => 'sidebar-hometop',
+    'name'          => __('Home right', 'sage'),
+    'id'            => 'sidebar-homeright',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',

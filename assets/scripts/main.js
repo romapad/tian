@@ -24,10 +24,10 @@
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 60) {
                     //nav.addClass("f-nav");
-                    nav.addClass("f-nav").fadeIn().animate({paddingBottom:"15px", paddingTop: "10px"}, 200);
+                    nav.addClass("f-nav").fadeIn().animate({paddingBottom:"10px", paddingTop: "5px"}, 200);
                 } else {
                     //nav.removeClass("f-nav");
-                    nav.removeClass("f-nav").animate({paddingBottom:"25px", paddingTop: "20px"}, 200);
+                    nav.removeClass("f-nav").animate({paddingBottom:"15px", paddingTop: "10px"}, 200);
                 }
             });
 

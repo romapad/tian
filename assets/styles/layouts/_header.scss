@@ -1,6 +1,6 @@
 header.banner {
     background-color: #333639;
-    padding: 20px 0 25px;
+    padding: 10px 0 15px;
     display: block;
 }
 header.f-nav{
@@ -17,11 +17,11 @@ header.banner a.brand {
     float: left;
     font-size: 0;
     color: #333639;
-    margin-right: 40px;
+    margin: 15px 40px 0 0;
 }
 nav.nav-primary {
     float: left;
-    margin-top: 15px;
+    margin-top: 25px;
 }
 nav.nav-primary li {
     float: left;
@@ -32,7 +32,7 @@ nav.nav-primary li a {
     font-family: $brand-font;
     font-weight: 400;
     background: none;
-    font-size: 13px;
+    font-size: 11px;
 }
 nav.nav-primary li a:hover,
 nav.nav-primary li a:focus,
@@ -43,19 +43,22 @@ nav.nav-primary li a:hover:after {
     content: " ";
     display: block;
     width: 80%;
-    height: 2px;
+    height: 1px;
     background-color: #fff;
-    margin: 0 auto;
+    margin: 5px auto 0;
 }
 .phone {
     float: right;
     line-height: 1.8em;
+    text-align: center;
 }
-.phone .tel {
-    font-size: 1.4em;
-}
-.callme_viewform {
-    padding: 0 6px 2px;
+.head_but {
+    padding: 0 10px 2px;
     border: 1px solid #fff;
-    border-radius: 5px;
+    border-radius: 5px; 
+    font-size: 10px;  
+}
+.phone a.jivo_but {
+    border-color: $brand-primary;
+    color: $brand-primary;
 }

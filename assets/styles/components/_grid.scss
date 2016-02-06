@@ -8,3 +8,205 @@
 .sidebar {
   @include make-sm-column($sidebar-sm-columns);
 }
+
+section {
+    padding-bottom: 8em;
+    position: relative
+}
+section:before {
+    content: ' ';
+    background-size: 100% 100%;
+    background-repeat: repeat-x;    
+    display: block;
+    width: 100%;
+    position: absolute;
+}
+#catalog {
+    background-color: $brand-darkest;
+}
+#catalog:before {
+    background-image: url(../images/catalog_bg.png);
+    height: 59px;
+    top: -58px;
+}
+.show-shemes {
+    position: absolute;
+    right: -51px;
+    top: 50%;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    transform: rotate(-90deg);
+    z-index: 100;
+    margin: 0;
+}
+.nav-tabs {
+    border-bottom: 1px dotted $brand-primary;
+    margin-bottom: 3em;
+}
+.nav>li {
+    text-align: center;
+    position: relative;
+}
+.nav-tabs>li.active:after {
+    display: block;
+    content: ' ';
+    height: 1px;
+    width: 80%;
+    background-color: $brand-muted;
+    margin: 20px auto 0;
+}
+.nav>li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+/* carousel */
+.carousel-control.right, .carousel-control.left {
+    background: none;
+    filter: none;
+    width: 10%;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+    margin-top: -30px;
+}
+.thumbnail, .wp-caption {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+#catalog .thumbnail {
+    height: 80px; 
+    margin-bottom: 15px;    
+}
+.carousel-inner {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#catalog .carousel-inner {
+    font-size: 10px;
+    text-align: center;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+    margin: 0 auto
+}
+.product-image .carousel-control .glyphicon-chevron-left, .product-image .carousel-control .glyphicon-chevron-right, .product-image .carousel-control .icon-next, .product-image .carousel-control .icon-prev {
+    color: $brand-primary;
+}
+/* catalog */
+h2.prod-title {
+    color: $brand-primary;
+    font-size: 72px;
+    font-weight: 900;
+    margin-top: 0;
+    line-height: 1;
+}
+.long-desc {
+    margin-top: 75px;
+}
+.product-image {
+    background: #fff;
+    width: 100%;
+    border-radius: 100%;
+    padding: 60px 20px 20px;
+    overflow: hidden;
+    margin: 3em 0;
+}
+.product-image .carousel-inner {
+    width: 56%;
+}
+.pict-gallery {
+    margin-bottom: 1em;
+}
+.desc-table {
+    border-top: 1px dotted $brand-primary;
+    margin-top: 4em;
+    padding-top: 2em;
+    text-align: center
+}
+
+/* about */
+#about {
+    background-color: #fff;
+    padding-top: 4em;
+}
+#about:before {
+    background-image: url(../images/about_bg.png);
+    height: 25px;
+    top: -25px;
+}
+#about .page-header {
+    background: url('../images/slider.png') no-repeat bottom center;
+    height: 320px;
+    margin-bottom: 4em;
+}
+#about .page-header h2 {
+    color: $brand-darkest;
+}
+#about .page-header h2:after {
+    background-color: $brand-darkest;
+}
+#about .desc-table {
+    border-color: $brand-darkest;
+    color: $brand-darkest;
+}
+
+/* partners */
+#partners {
+    background-color: $brand-primary;
+    padding-top: 4em;    
+}
+#partners:before {
+    background-image: url(../images/partners_bg.png);
+    height: 65px;
+    top: -65px;   
+}
+
+/* news */
+#news {
+    padding-top: 4em; 
+    padding-bottom: 20em;
+}
+#news:before {
+    background-image: url(../images/news_bg.png);
+    height: 56px;
+    top: -28px;   
+}
+#news h2 {
+    color: $brand-primary;
+}
+#news .page-header h2:after {
+    content: " ";
+    display: block;
+    width: 80%;
+    height: 1px;
+    background-color: $brand-primary;
+    margin: 20px auto;
+}
+#carousel-news .carousel-control .glyphicon-chevron-left, #carousel-news .carousel-control .glyphicon-chevron-right, #carousel-news .carousel-control .icon-next, #carousel-news .carousel-control .icon-prev {
+    color: $brand-primary;
+}
+
+/* contacts */
+#contacts {
+    padding-top: 3em;   
+    background-color: $brand-darkest;
+}
+#contacts:before {
+    background-image: url(../images/contacts_bg.png);
+    height: 107px;
+    top: -107px;   
+}
+.map {
+    margin-bottom: 4em;
+}
+.contact-form {
+    margin: 4em 0;
+}
+.contact-form h3, .contact-form .btn {
+    text-align: center;
+}

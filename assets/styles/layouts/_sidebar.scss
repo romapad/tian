@@ -1,41 +1,70 @@
-.hometop,
-.homebottom  {
+.homecontent {
+    padding: 60px 20px 0 70px;
+}
+.homeinner {
+    position: relative;
+}
+.homeinner:before {
+    content: url(../images/hometruba.png);
+    position: absolute;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 100%;
+    margin: 0 20px 0 0;
+    padding: 40% 30%;
+}
+.homeleft section,
+.homeright section {
+    margin-bottom: 30px;
     @include clearfix;
 }
-.hometop section,
-.homebottom section {
-    float: left;
-    width: 20%;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 0 20px;
-    margin-bottom: 30px;
-}
-.hometop section h3 {
-    font-size: 20px;
+.homeleft section {
+    min-height: 100px;
     margin-bottom: 0;
+    padding-bottom: 4em;
 }
-.homebottom section:first-child {
-    width: 45%;
+.homeleft section h3 {
+    font-size: 16px;
+    margin: 0 0 0 75px;
 }
-.homebottom section:last-child {
-    width: 55%;
+.homeleft section .textwidget {
+    padding-left: 75px;
+    margin-top: 5px;
 }
-.homebottom section h3 {
+.homeleft img {
+    float: left;
+    margin: -25px 20px 0 -77px;
+}
+.homeright {
+    margin-top: 60px;
+    text-align: center;    
+}
+.homeright section {
+    padding-bottom: 0;
+}
+.homeright section h3 {
     color: $brand-primary;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 300;
     display: inline-block;
     margin: 30px auto;
 }
-.homebottom section h3:after {
+.homeright section h3:after {
     content: " ";
     display: block;
     width: 80%;
-    height: 2px;
+    height: 1px;
     background-color: #fff;
     margin: 10px auto;
 }
-.homebottom section ul li {
+.homeright section ul {
     list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+.homeright img {
+    max-width: 100%;
 }

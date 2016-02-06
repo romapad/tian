@@ -5,9 +5,12 @@ body {
 }
 h1 {
     color: $brand-primary;
-    font-size: 48px;
-    text-align: center;
-    font-weight: 300;
+} 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;    
+}
+.white a, .white {
+    color: #fff;
 }
 .container {
     width: 100%;
@@ -17,15 +20,36 @@ h1 {
 .page-header {
     border-bottom: none;
     text-align: center;
+    margin-top: 0;
 }
-.page-header h1 {
+.page-header h1, .page-header h2 {
     display: inline-block;
+    font-size: 48px;
+    text-align: center;
 }
-.page-header h1:after {
+.page-header h1:after, .page-header h2:after {
     content: " ";
     display: block;
     width: 80%;
-    height: 2px;
+    height: 1px;
     background-color: #fff;
     margin: 20px auto;
+}
+.btn, .btn:hover {
+    background: none;
+    color: $brand-muted;
+    margin-bottom: 5px;
+    border-radius: 0.5em;
+}
+.btn:active, .btn:active:focus, .btn:active:hover {
+    color: #fff;
+    background-color: transparent;
+    border-color: $brand-primary;
+}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-color: $brand-primary;
+    text-align: center;
+}
+.media, .media-body {
+    margin-bottom: 3em;
 }
