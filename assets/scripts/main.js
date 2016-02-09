@@ -30,6 +30,22 @@
                     nav.removeClass("f-nav").animate({paddingBottom:"15px", paddingTop: "10px"}, 200);
                 }
             });
+          
+var menuHeight = $('header.banner').height();   
+          $(document).ready(function () {
+    $('#menu-main li a').click(function(e){
+
+            var content = $(this).attr('href');
+        
+            var checkURL = content.match(/^#([^\/]+)$/i);
+            if(checkURL){
+                e.preventDefault();
+                var goPosition = $(content).offset().top - (menuHeight + 10);
+
+                $('html,body').animate({ scrollTop: goPosition}, 'slow');
+
+            }
+    });    });
 
       },
       finalize: function() {

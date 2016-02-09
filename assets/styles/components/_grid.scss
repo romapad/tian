@@ -136,8 +136,9 @@ h2.prod-title {
 }
 #about:before {
     background-image: url(../images/about_bg.png);
+    background-size: auto;
     height: 25px;
-    top: -25px;
+    top: -24px;
 }
 #about .page-header {
     background: url('../images/slider.png') no-repeat bottom center;
@@ -173,6 +174,7 @@ h2.prod-title {
 }
 #news:before {
     background-image: url(../images/news_bg.png);
+    background-size: auto;
     height: 56px;
     top: -28px;   
 }
