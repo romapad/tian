@@ -58,7 +58,21 @@ $(document).ready(function () {
         news_content.animate({height:'100%'},500).addClass('news-hide');
         $(this).text('Свернуть');            
       }    
-    });   
+    });    
+    
+    var region_obj = $('.region-list ul li');
+    region_obj.click(function(){
+        var partner = $('#partners .partner'); 
+        partner.show();
+        var reg_slug = $(this).attr('class'); 
+        partner.not("." + reg_slug).toggle();  
+        region_obj.removeAttr('id', 'selected');        
+        $(this).attr('id', 'selected');        
+    });
+    $('.show-regions').click(function(){
+        $('#partners .partner').show(); 
+    });
+     
                     
 });
                

@@ -101,12 +101,10 @@
                     <p>Алюминиевый секционный радиатор премиум-класса с нижней заглушкой из нержавеющей стали выполненный методом литья под высоким давлением. Радиаторы TL разработаны с учетом требований, предъявляемых к радиаторам отопления при эксплуатации их на территории России и стран СНГ. Конструкция радиаторов соответствует требованиям ГОСТ 31311 – 2005.</p>
                     <p>Радиаторы серии TL разработаны с учетом требований эксплуатации в автономных системах отопления, применяемых в загородных домах и быстровозводимых зданиях, а также и в многоквартирных домах с собственными котельными и системами отопления. Нижняя заглушка с резьбой 1 дюйм обеспечивает возможность нижнего подключения для скрытого монтажа и облегчает обслуживание радиатора.</p>
                 </div>
-                <div class="pict-gallery row">
+                <div class="pict-gallery">
                     <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-1.png" alt=""></div>
                     <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-2.png" alt=""></div>
-                    <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-3.png" alt=""></div>
-                </div>    
-                <div class="pict-gallery row">    
+                    <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-3.png" alt=""></div>   
                     <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-4.png" alt=""></div>
                     <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-5.png" alt=""></div>
                     <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-6.png" alt=""></div>
@@ -206,110 +204,67 @@
       <div class="content row">  
           <div class="col-md-8">
              <div class="row">
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-1.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-2.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-3.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-4.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-5.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-6.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-1.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-2.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-1.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
-                 <div class="col-md-6">
-                     <div class="media">
-                         <div class="media-left"><a href=""><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/crugi-4-2.png" alt="" class="media-object"></a></div>
-                         <div class="media-body">наименование,<br> 
-                         адрес,<br>
-                         телефон,<br> 
-                         сайт,<br>
-                         адрес эл.почты</div>
-                     </div>
-                 </div>
+<?php // WP_Query arguments
+$args = array (
+	'post_type'              => array( 'partners' ),
+	'posts_per_page'         => '-1',
+	'order'                  => 'ASC',
+	'orderby'                => 'title',
+);
+
+// The Query
+$partners_query = new WP_Query( $args );
+
+// The Loop
+if ( $partners_query->have_posts() ) {
+	while ( $partners_query->have_posts() ) {
+		$partners_query->the_post();
+		$terms = get_the_terms( get_the_ID(), 'region' );
+        if ( $terms && ! is_wp_error( $terms ) ) : 
+            $region_links = array(); 
+            foreach ( $terms as $term ) {
+                $region_links[] = $term->slug;
+            }                             
+        $on_region = join( " ", $region_links );
+        endif;
+        echo '<div class="col-md-6 partner '. $on_region .'"><div class="media">';
+        echo '<div class="media-left"><a>';
+        if ( has_post_thumbnail() ) {
+	        the_post_thumbnail('thumbnail', array('class' => 'media-object'));
+        }          
+        echo '</a></div>';
+        echo '<div class="media-body">';
+        the_excerpt();
+        echo '</div></div></div>';
+        
+	}
+} else {
+	// no posts found
+}
+
+// Restore original Post Data
+wp_reset_postdata();  ?>               
+
              </div>
           </div>         
           <div class="col-md-4">
+            <div class="region-list clearfix">
+                <p class="show-regions">Выберите регион</p>
 
+              <ul>
+              <?php 
+                  $regions = get_terms( 'region', array(
+                      'orderby'    => 'name',
+                      'hide_empty' => 0
+                  ) );
+                  if ( $regions && ! is_wp_error( $regions ) ) : 
+                  foreach ( $regions as $region ) {
+                      echo '<li class="'. $region->slug .'">'. $region->name .'</li>';
+                  }  
+                  endif;
+              ?>
+              </ul> 
+            </div>  
           </div>
       </div><!-- /.content -->
       

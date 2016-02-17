@@ -107,8 +107,16 @@ h2.prod-title {
     width: 56%;
 }
 .pict-gallery {
+    margin: 1em 0 2em;
+}
+.pict-gallery .col-md-4 {
+    padding-left: 8px;
+    padding-right: 8px;
     margin-bottom: 1em;
 }
+.pict-gallery img {
+    width: 100%;
+} 
 .desc-table {
     border-top: 1px dotted $brand-primary;
     margin-top: 4em;
@@ -153,6 +161,36 @@ h2.prod-title {
     height: 65px;
     top: -65px;   
 }
+.region-list {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1px 1px 1em;
+}
+.region-list p {
+    margin: 2px;
+    background: $brand-primary;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 10px; 
+    cursor: pointer;
+}
+.region-list ul {
+    margin: 0;
+    padding: 0.5em;
+    list-style-type: none;
+}
+.region-list ul li {
+    color: $brand-primary;
+    padding: 0.5em;
+    float: left;
+    clear: both;
+    cursor: pointer;
+}
+.region-list ul li:hover, .region-list ul li#selected {
+    color: #fff;
+    background: $brand-primary;
+    border-radius: .5em;
+}
 
 /* news */
 #news {
@@ -183,6 +221,9 @@ h2.prod-title {
 .news-content {
     height: 100px;
     overflow: hidden;
+}
+.news-show {
+    cursor: pointer;
 }
 
 /* contacts */
