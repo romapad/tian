@@ -66,6 +66,15 @@ function widgets_init() {
   ]);
 
   register_sidebar([
+    'name'          => __('About Bottom', 'sage'),
+    'id'            => 'sidebar-about-bottom',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);    
+    
+  register_sidebar([
     'name'          => __('Home Left', 'sage'),
     'id'            => 'sidebar-homeleft',
     'before_widget' => '<section class="widget %1$s %2$s">',

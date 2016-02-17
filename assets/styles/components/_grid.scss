@@ -29,19 +29,6 @@ section:before {
     height: 59px;
     top: -58px;
 }
-.show-shemes {
-    position: absolute;
-    right: -51px;
-    top: 50%;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-    transform: rotate(-90deg);
-    z-index: 100;
-    margin: 0;
-}
 .nav-tabs {
     border-bottom: 1px dotted $brand-primary;
     margin-bottom: 3em;
@@ -171,6 +158,7 @@ h2.prod-title {
 #news {
     padding-top: 4em; 
     padding-bottom: 20em;
+    min-height: 70em;    
 }
 #news:before {
     background-image: url(../images/news_bg.png);
@@ -191,6 +179,10 @@ h2.prod-title {
 }
 #carousel-news .carousel-control .glyphicon-chevron-left, #carousel-news .carousel-control .glyphicon-chevron-right, #carousel-news .carousel-control .icon-next, #carousel-news .carousel-control .icon-prev {
     color: $brand-primary;
+}
+.news-content {
+    height: 100px;
+    overflow: hidden;
 }
 
 /* contacts */

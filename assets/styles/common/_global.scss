@@ -40,6 +40,7 @@ h1, h2, h3, h4, h5, h6 {
     color: $brand-muted;
     margin-bottom: 5px;
     border-radius: 0.5em;
+    text-transform: uppercase;  
 }
 .btn:active, .btn:active:focus, .btn:active:hover {
     color: #fff;
@@ -52,4 +53,4 @@ h1, h2, h3, h4, h5, h6 {
 }
 .media, .media-body {
     margin-bottom: 3em;
-}
+} 

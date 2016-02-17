@@ -27,8 +27,7 @@
     </div><!-- /.wrap -->     
 </section>
 
-<section id="catalog" class="white">
-    <a href="" class="show-shemes btn btn-default btn-sm">Посмотреть схемы</a>   
+<section id="catalog" class="white"> 
     <div class="wrap container" role="document">    
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active col-md-4"><h2><a href="#aluminy" aria-controls="aluminy" role="tab" data-toggle="tab">Алюминиевые<br>радиаторы</a></h2></li>
@@ -189,8 +188,7 @@
       </div><!-- /.content -->
            <div class="row">
             <div class="col-md-10 col-md-offset-1 desc-table">
-                 Получить консультацию по ценам, а также приобрести продукцию в России Вы можете, позвонив в офис компании<br>
-                 ООО "ТР Системы" по тел: 8 (495) 781-90-93, или написав на почту info@tianrun-group.com.
+                <?php dynamic_sidebar('sidebar-about-bottom'); ?> 
             </div>
            </div>       
       
@@ -324,23 +322,44 @@
         <h2 class="page-header">Новости</h2>    
     </div>    
     <div class="wrap container" role="document">
+    
+    <?php // WP_Query arguments
+$args = array (
+	'posts_per_page'         => '-1',
+);
+
+// The Query
+$tian_news = new WP_Query( $args );
+
+// The Loop
+if ( $tian_news->have_posts() ) {
+$i = 1;        
+$count_posts = wp_count_posts();
+$published_posts = $count_posts->publish;    
+?>
 <div id="carousel-news" class="carousel slide" data-ride="carousel">
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
-     <div class="row">
-         <div class="col-sm-4"><a href="" class="thumbnail"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/strelka-5-3.png" alt="Новость 1" class="center-block img-responsive"></a><p>Доллар достигал в 11:58 мск отметки 85,036 рубля (+3,41 руб. к отметке предыдущего закрытия). Спустя 4-5 минут евро достиг 93,3 рубля (+4,4 руб.), доллар в этот момент стоил 85,6 рубля (+4,2 руб.). К 12:00 мск средний курс покупки/продажи наличного доллара в банках Москвы составил 81.33/85.46 рубля. <a href="">Читать далее...</a></p></div>
-         <div class="col-sm-4"><a href="" class="thumbnail"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/strelka-5-4.png" alt="Новость 2"></a><p>Необходимости обсуждать вопрос Крыма с украинскими властями нет, заявил пресс-секретарь президента России Дмитрий Песков, передает "Интерфакс". По его словам, этого вопроса не существует.<a href="">Читать далее...</a></p></div>
-         <div class="col-sm-4"><a href="" class="thumbnail"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/strelka-5-5.png" alt="Новость 3"></a><p>Водитель снегоуборщика Владимир Мартыненко, ключевой фигурант дела об авиакатастрофе самолета Falcon, в которой погиб владелец нефтяной компании Total, признал вину после предъявления ему окончательного обвинения, сообщил его адвокат. <a href="">Читать далее...</a></p></div>
-     </div>
-    </div> 
-    <div class="item">
-     <div class="row">
-         <div class="col-sm-4"><a href="" class="thumbnail"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/strelka-5-3.png" alt="Новость 1"></a><p>Доллар достигал в 11:58 мск отметки 85,036 рубля (+3,41 руб. к отметке предыдущего закрытия). Спустя 4-5 минут евро достиг 93,3 рубля (+4,4 руб.), доллар в этот момент стоил 85,6 рубля (+4,2 руб.). К 12:00 мск средний курс покупки/продажи наличного доллара в банках Москвы составил 81.33/85.46 рубля. <a href="">Читать далее...</a></p></div>
-         <div class="col-sm-4"><a href="" class="thumbnail"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/strelka-5-4.png" alt="Новость 2"></a><p>Необходимости обсуждать вопрос Крыма с украинскими властями нет, заявил пресс-секретарь президента России Дмитрий Песков, передает "Интерфакс". По его словам, этого вопроса не существует.<a href="">Читать далее...</a></p></div>
-         <div class="col-sm-4"><a href="" class="thumbnail"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/strelka-5-5.png" alt="Новость 3"></a><p>Водитель снегоуборщика Владимир Мартыненко, ключевой фигурант дела об авиакатастрофе самолета Falcon, в которой погиб владелец нефтяной компании Total, признал вину после предъявления ему окончательного обвинения, сообщил его адвокат. <a href="">Читать далее...</a></p></div>
-     </div>
-    </div>      
+	<?php while ( $tian_news->have_posts() ) {
+		$tian_news->the_post(); 
+		// do something
+    if(($i + 2) % 3 == 0) {
+        echo '<div class="item';
+        if($i == 1){ echo ' active'; }
+        echo '"><div class="row">';
+    }
+        echo '<div class="col-sm-4"><a class="thumbnail">';
+        if ( has_post_thumbnail() ) {
+	        the_post_thumbnail('thumbnail', array('class' => 'center-block img-responsive'));
+        } 
+        echo '</a><div class="news-content">';
+        the_content();
+        echo '</div><a class="news-show">Читать далее...</a>';
+        echo '</div>';
+    if(($i % 3 == 0) || ($i == $published_posts)) {
+        echo '</div></div>';
+    } $i++;
+	} ?>
   </div>
 
   <!-- Controls -->
@@ -352,7 +371,14 @@
     <span class="icon-next" aria-hidden="true"></span>
     <span class="sr-only">Вперед</span>
   </a>
-</div>         
+</div>                                    
+<?php } else {
+	// no posts found
+}
+
+// Restore original Post Data
+wp_reset_postdata(); ?>
+    
       
     </div><!-- /.wrap -->     
 </section>
@@ -381,21 +407,21 @@
           <div class="col-md-8">
               <h2>Как добираться:</h2>
            <p><b>На машине:</b><br>
-           Съезд с МКАД на Рязанский проспект. Проехать 2.5 км. Въезд на круговой перекресток, третий поворот направо. Проехать 1 км по ул. Академика Скрябина. Далее  повернуть  налево,  на Сормовский проезд. Ехать  400 м до  здания мебельной фабрики  «Кузьминки».
+           Съезд с МКАД на Рязанский проспект. Проехать 2.5 км. Въезд на круговой перекресток, третий поворот направо. Проехать 1 км по ул. Академика Скрябина. Далее  повернуть  налево,  на Сормовский проезд.<br>Ехать  400 м до  здания мебельной фабрики  «Кузьминки».
            </p>
 
            <p>
-           Съезд с МКАД на Волгоградский проспект. Проехать 2.1 км по Волгоградскому проспекту. Поворот направо (второй светофор), под стрелку. Проехать 800 м по ул. Академика Скрябина. Поворот налево на Сормовский проезд.  Ехать  400 м до  здания мебельной фабрики  «Кузьминки».
+           Съезд с МКАД на Волгоградский проспект. Проехать 2.1 км по Волгоградскому проспекту. Поворот направо (второй светофор), под стрелку. Проехать 800 м по ул. Академика Скрябина. Поворот налево на Сормовский проезд.<br>Ехать  400 м до  здания мебельной фабрики  «Кузьминки».
            </p>
 
            <p><b>Общественным транспортом:</b><br>
            Метро Выхино<br>
-           Выход из метро в сторону Государственного университета управления. Прямо пешком 350 м. Перейти Рязанский проспект. Маршрутное такси 291М до остановки  «Автосалон Автогермес» (5 минут). Направо 300 м. Здание мебельной фабрики «Кузьминки».
+           Выход из метро в сторону Государственного университета управления. Прямо пешком 350 м. Перейти Рязанский проспект. Маршрутное такси 291М до остановки  «Автосалон Автогермес» (5 минут). Направо 300 м.<br>Здание мебельной фабрики «Кузьминки».
            </p>
 
            <p>
            Метро Рязанский проспект<br>
-           Автобусы:  51, 208 или маршрутное такси 351М до остановки Ферганская ул. 5. Направо 400 м. Здание мебельной фабрики «Кузьминки».  
+           Автобусы:  51, 208 или маршрутное такси 351М до остановки Ферганская ул. 5. Направо 400 м.<br>Здание мебельной фабрики «Кузьминки».  
            </p>
  
           </div>
