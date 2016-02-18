@@ -42,7 +42,7 @@ $(document).ready(function () {
                 e.preventDefault();
                 var goPosition = $(content).offset().top - (menuHeight + 10);
 
-                $('html,body').animate({ scrollTop: goPosition}, 'slow');
+                $('html,body').animate({ scrollTop: goPosition}, 'slow'); 
 
             }
     });   

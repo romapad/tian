@@ -89,11 +89,18 @@ h2.prod-title {
     color: $brand-primary;
     font-size: 72px;
     font-weight: 900;
-    margin-top: 0;
+    margin: 0 0 20px;
     line-height: 1;
 }
+.short-desc {
+    padding-right: 15px;
+}
 .long-desc {
-    margin-top: 75px;
+    margin: 6em 0 4em;
+    padding-left: 15px;
+}
+.order-btn {
+    margin-left: 15px;
 }
 .product-image {
     background: #fff;
@@ -107,11 +114,11 @@ h2.prod-title {
     width: 56%;
 }
 .pict-gallery {
-    margin: 1em 0 2em;
+    margin: 2em 0;
 }
 .pict-gallery .col-md-4 {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 0;
+    padding-right: 15px;
     margin-bottom: 1em;
 }
 .pict-gallery img {
@@ -154,7 +161,8 @@ h2.prod-title {
 /* partners */
 #partners {
     background-color: $brand-primary;
-    padding-top: 4em;    
+    padding-top: 4em; 
+    min-height: 60em;
 }
 #partners:before {
     background-image: url(../images/partners_bg.png);

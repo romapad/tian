@@ -52,11 +52,9 @@ nav.nav-primary li a:hover:after {
     line-height: 1.8em;
     text-align: center;
 }
-.head_but {
-    padding: 0 10px 2px;
+.btn.head_but { 
     border: 1px solid #fff;
-    border-radius: 5px; 
-    font-size: 10px;  
+    margin-bottom: 5px;
 }
 .phone a.jivo_but {
     border-color: $brand-primary;

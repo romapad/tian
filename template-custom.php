@@ -22,6 +22,19 @@
     
     <div class="col-md-4 homeright">
         <?php dynamic_sidebar('sidebar-homeright'); ?>
+        <section class="widget">		
+             <h3>Новости</h3>
+             <?php $args = array ('posts_per_page' => '1',);
+             $main_news_query = new WP_Query( $args );
+             if ( $main_news_query->have_posts() ) {
+             	while ( $main_news_query->have_posts() ) {
+             		$main_news_query->the_post();
+             		the_excerpt();
+                    echo '<a href="/#news">Читать все новости</a>';
+             	}
+             } else { }
+             wp_reset_postdata(); ?>            
+		</section>
     </div>
       </div><!-- /.content -->
     </div><!-- /.wrap -->     
@@ -101,7 +114,7 @@
                     <p>Алюминиевый секционный радиатор премиум-класса с нижней заглушкой из нержавеющей стали выполненный методом литья под высоким давлением. Радиаторы TL разработаны с учетом требований, предъявляемых к радиаторам отопления при эксплуатации их на территории России и стран СНГ. Конструкция радиаторов соответствует требованиям ГОСТ 31311 – 2005.</p>
                     <p>Радиаторы серии TL разработаны с учетом требований эксплуатации в автономных системах отопления, применяемых в загородных домах и быстровозводимых зданиях, а также и в многоквартирных домах с собственными котельными и системами отопления. Нижняя заглушка с резьбой 1 дюйм обеспечивает возможность нижнего подключения для скрытого монтажа и облегчает обслуживание радиатора.</p>
                 </div>
-                <div class="pict-gallery">
+                <div class="pict-gallery clearfix">
                     <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-1.png" alt=""></div>
                     <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-2.png" alt=""></div>
                     <div class="col-md-4"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/ikon-2-3-3.png" alt=""></div>   
