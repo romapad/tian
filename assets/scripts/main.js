@@ -72,7 +72,7 @@ $(document).ready(function () {
     $('.show-regions').click(function(){
         $('#partners .partner').show(); 
     });
-     
+      
                     
 });
                

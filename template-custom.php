@@ -292,12 +292,12 @@ $i = 1;
 $count_posts = wp_count_posts();
 $published_posts = $count_posts->publish;    
 ?>
-<div id="carousel-news" class="carousel slide" data-ride="carousel">
+<div id="carousel-news" class="carousel slide">
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
 	<?php while ( $tian_news->have_posts() ) {
 		$tian_news->the_post(); 
-		// do something
+		// do something 
     if(($i + 2) % 3 == 0) {
         echo '<div class="item';
         if($i == 1){ echo ' active'; }
