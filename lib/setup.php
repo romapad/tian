@@ -131,8 +131,11 @@ function assets() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);  
+
+  /** Localize Scripts */
+  $php_array = array( 'admin_ajax' => admin_url( 'admin-ajax.php' ) );
+  wp_localize_script( 'sage/js', 'php_array', $php_array );    
+    
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
-
-

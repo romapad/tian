@@ -30,9 +30,9 @@
                     nav.removeClass("f-nav").animate({paddingBottom:"15px", paddingTop: "10px"}, 200);
                 }
             });
-          
-var menuHeight = $('header.banner').height();   
+            
 $(document).ready(function () {
+    var menuHeight = $('header.banner').height(); 
     $('#menu-main li a').click(function(e){
 
             var content = $(this).attr('href');
@@ -73,7 +73,34 @@ $(document).ready(function () {
         $('#partners .partner').show(); 
     });
       
-                    
+
+    $( 'a.product-link' ).off( 'click' ).on( 'click', function( e ) { 
+        /** Prevent Default Behaviour */
+        e.preventDefault();
+        /** Get Post ID */
+        var post_id = $(this).attr( 'rel' ); 
+        /** Ajax Call */
+        $.ajax({
+            cache: false,
+            timeout: 8000,
+            url: php_array.admin_ajax,
+            type: "POST",
+            data: ({ action:'theme_post_example', id:post_id }),
+            beforeSend: function() {                    
+                $( '#product-content-one' ).html( '<div class="row"><div class="col-md-8 col-md-offset-4">Загрузка...</div></div>' );
+                
+            },
+            success: function( data, textStatus, jqXHR ){
+                var $ajax_response = $( data );
+                $( '#product-content-one' ).html( $ajax_response ); 
+            }, 
+            error: function( jqXHR, textStatus, errorThrown ){
+                console.log( 'The following error occured: ' + textStatus, errorThrown );   
+            }, 
+            complete: function( jqXHR, textStatus ){
+            }
+        });
+    });                    
 });
                
          

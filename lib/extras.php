@@ -105,3 +105,24 @@ function custom_region_taxonomy() {
 
 }
 add_action( 'init', __NAMESPACE__ . '\\custom_region_taxonomy', 0 );
+
+
+/** Ajax Post */
+add_action( 'wp_ajax_theme_post_example', __NAMESPACE__ . '\\theme_post_example_init' );
+add_action( 'wp_ajax_nopriv_theme_post_example', __NAMESPACE__ . '\\theme_post_example_init' );
+function theme_post_example_init() {
+  /** Made Query */
+  $args = array (
+  	'post_type' => array( 'catalog' ),
+      'p'         => $_POST['id']
+  );    
+  $theme_post_query = new \WP_Query( $args );    
+  
+    while( $theme_post_query->have_posts() ) : $theme_post_query->the_post();
+       
+      get_template_part('templates/content', 'catalog');
+    
+    endwhile;         
+    
+  exit;
+}
