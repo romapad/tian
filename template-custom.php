@@ -47,74 +47,99 @@
 <section id="catalog" class="white"> 
 
   <div class="wrap container" role="document">            
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active col-md-4"><h2><a href="#aluminy" aria-controls="aluminy" role="tab" data-toggle="tab">Алюминиевые<br>радиаторы</a></h2></li>
-      <li role="presentation" class="col-md-4"><h2><a href="#bimetall" aria-controls="bimetall" role="tab" data-toggle="tab">Биметаллические<br>радиаторы</a></h2></li>
-      <li role="presentation" class="col-md-4"><h2><a href="#assets" aria-controls="assets" role="tab" data-toggle="tab">Комплектующие<br>для радиаторов</a></h2></li>
+    <ul class="nav nav-tabs" role="tablist">  
+      <?php $shop_cats = get_terms( 'catalog_cat', array(
+              'orderby'    => 'name',
+              'hide_empty' => 0
+            ));
+          if ( $shop_cats && ! is_wp_error( $shop_cats ) ) : 
+          $ci = 1;
+          foreach ( $shop_cats as $shop_cat ) {
+              if($ci == 1) {
+                  $active = "active";
+              } else {
+                  $active = "";
+              }
+              echo '<li role="presentation" class="'. $active .' col-md-4"><h2><a href="#'. $shop_cat->slug .'" aria-controls="'. $shop_cat->slug .'" role="tab" data-toggle="tab">'. $shop_cat->name .'</a></li>';
+              $ci++;
+          }  
+      endif; ?>     
     </ul>
     
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="aluminy">
-        <div class="row">
-          <div class="col-md-4">
-                         
-            <?php $args = array (
+      <?php $shop_cats = get_terms( 'catalog_cat', array(
+              'orderby'    => 'name',
+              'hide_empty' => 0
+            ));
+          if ( $shop_cats && ! is_wp_error( $shop_cats ) ) : 
+          $ci = 1;
+          foreach ( $shop_cats as $shop_cat ) {
+              if($ci == 1) {
+                  $active = "active";
+              } else {
+                  $active = "";
+              }
+
+$ajax_cat_preff[] = $shop_cat->slug;              
+wp_localize_script( 'sage/js', 'tian_ajax_params', array(
+	'ajax_cat_preff' => $ajax_cat_preff
+) );                         
+              
+              echo '<div role="tabpanel" class="tab-pane '. $active .'" id="'. $shop_cat->slug .'"><div class="row"><div class="col-md-4">';
+              
+              $slider_args = array (
             	           'post_type'      => array( 'catalog' ),
             	           'posts_per_page' => '-1',
                            'tax_query'      => array(
             	               array(
             	               	'taxonomy'  => 'catalog_cat',
             	               	'field'     => 'slug',
-            	               	'terms'     => 'alyuminiy',),
+            	               	'terms'     => $shop_cat->slug),
             	           ),
-                  );
-                  $tian_cat_one = new WP_Query( $args );
-                  if ( $tian_cat_one->have_posts() ) {
-                  $z = 1;        
-                  $count_shop = wp_count_posts('catalog');
-                  $published_shop = $count_shop->publish;    
-            ?>               
-            <div id="carousel-products" class="carousel slide" data-ride="carousel">
-              <!-- Wrapper for slides -->  
-              <div class="carousel-inner" role="listbox">
-            	<?php while ( $tian_cat_one->have_posts() ) {
-                  $tian_cat_one->the_post(); 
-                    if(($z + 3) % 4 == 0) {
-                        echo '<div class="item';
-                        if($z == 1){ echo ' active'; }
-                        echo '"><div class="row">';
-                    }
-                    echo '<div class="col-sm-3"><a class="thumbnail product-link" rel="'. get_the_ID() .'">';
-                    if ( has_post_thumbnail() ) {
-            	        the_post_thumbnail('thumbnail');
-                    } 
-                    echo '</a><p><a class="product-link" rel="'. get_the_ID() .'">';
-                    the_title();
-                    echo '</a></p></div>';
-                    if(($z % 4 == 0) || ($z == $published_shop)) {
-                        echo '</div></div>';
-                    } $z++;
-                } ?>      
-              </div>
-              <!-- Controls -->
-              <a class="left carousel-control" href="#carousel-products" role="button" data-slide="prev">
-                <span class="icon-prev" aria-hidden="true"></span>
-                <span class="sr-only">Назад</span>
-              </a>
-              <a class="right carousel-control" href="#carousel-products" role="button" data-slide="next">
-                <span class="icon-next" aria-hidden="true"></span>
-                <span class="sr-only">Вперед</span>
-              </a>
-            </div>               
-            <?php } else { }
-            wp_reset_postdata(); ?>
-            
-
+              );
+              $tian_cat_one = new WP_Query( $slider_args );
+              if ( $tian_cat_one->have_posts() ) {
+              $z = 1;        
+              $count_shop = wp_count_posts('catalog');
+              $published_shop = $count_shop->publish; ?>                   
+        <div id="carousel-products-<?php echo $shop_cat->slug; ?>" class="carousel slide carousel-products" data-ride="carousel">
+          <!-- Wrapper for slides -->  
+          <div class="carousel-inner" role="listbox">
+        	<?php while ( $tian_cat_one->have_posts() ) {
+              $tian_cat_one->the_post(); 
+                if(($z + 3) % 4 == 0) {
+                    echo '<div class="item';
+                    if($z == 1){ echo ' active'; }
+                    echo '"><div class="row">';
+                }
+                echo '<div class="col-sm-3"><a class="thumbnail link-'. $shop_cat->slug .'" rel="'. get_the_ID() .'">';
+                if ( has_post_thumbnail() ) {
+        	        the_post_thumbnail('thumbnail');
+                } 
+                echo '</a><p><a class="link-'. $shop_cat->slug .'" rel="'. get_the_ID() .'">';
+                the_title();
+                echo '</a></p></div>';
+                if(($z % 4 == 0) || ($z == $published_shop)) {
+                    echo '</div></div>';
+                } $z++;
+            } ?>      
           </div>
-        </div>   
-                                              
-        <div id="product-content-one" class="product-content">
-        <?php // WP_Query arguments
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-products-<?php echo $shop_cat->slug; ?>" role="button" data-slide="prev">
+            <span class="icon-prev" aria-hidden="true"></span>
+            <span class="sr-only">Назад</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-products-<?php echo $shop_cat->slug; ?>" role="button" data-slide="next">
+            <span class="icon-next" aria-hidden="true"></span>
+            <span class="sr-only">Вперед</span>
+          </a>
+        </div>               
+        <?php } else { }
+        wp_reset_postdata(); 
+              
+    echo '</div></div>'; 
+              
+    echo '<div id="product-content-'. $shop_cat->slug .'" class="product-content">';
         $args = array (
         	'post_type'              => array( 'catalog' ),
         	'posts_per_page'         => '1',
@@ -122,10 +147,11 @@
         	    array(
         	    	'taxonomy' => 'catalog_cat',
         	    	'field'    => 'slug',
-        	    	'terms'    => 'alyuminiy',
+        	    	'terms'    => $shop_cat->slug
         	    ),
         	),
         );
+              
         $tian_main_one = new WP_Query( $args );
         if ( $tian_main_one->have_posts() ) {   
           while ( $tian_main_one->have_posts() ) {
@@ -133,19 +159,13 @@
                 get_template_part('templates/content', 'catalog'); 
           }
         } else { }
-        wp_reset_postdata(); ?> 
-        </div>
-      </div>              
-      <div role="tabpanel" class="tab-pane" id="bimetall">
-          <div class="col-md-4"></div>
-          <div class="col-md-4"></div>
-          <div class="col-md-4"></div>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="assets">
-          <div class="col-md-4"></div>
-          <div class="col-md-4"></div>
-          <div class="col-md-4"></div>
-      </div>
+        wp_reset_postdata();
+        
+        echo '</div></div>';
+              
+          $ci++;
+          }  
+      endif; ?> 
 	</div>
   </div><!-- /.wrap -->   
 </section>

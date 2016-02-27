@@ -58,7 +58,7 @@ $(document).ready(function () {
         news_content.animate({height:'100%'},500).addClass('news-hide');
         $(this).text('Свернуть');            
       }    
-    });    
+    });     
     
     var region_obj = $('.region-list ul li');
     region_obj.click(function(){
@@ -73,8 +73,18 @@ $(document).ready(function () {
         $('#partners .partner').show(); 
     });
       
-
-    $( 'a.product-link' ).off( 'click' ).on( 'click', function( e ) { 
+	if ( typeof tian_ajax_params === 'undefined' ) {
+		return false;
+	}
+    
+	if ( tian_ajax_params.ajax_cat_preff ) {
+    var tian_cat = tian_ajax_params.ajax_cat_preff;      
+    var link =  'a.link-';
+    var cont =  '#product-content-';   
+    $.each(tian_cat, function(){
+    var cat_val = this.valueOf();    
+    $( link + cat_val ).off( 'click' ).on( 'click', function( e ) { 
+        console.log(link + cat_val);
         /** Prevent Default Behaviour */
         e.preventDefault();
         /** Get Post ID */
@@ -87,12 +97,12 @@ $(document).ready(function () {
             type: "POST",
             data: ({ action:'theme_post_example', id:post_id }),
             beforeSend: function() {                    
-                $( '#product-content-one' ).html( '<div class="row"><div class="col-md-8 col-md-offset-4">Загрузка...</div></div>' );
+                $( cont + cat_val ).html( '<div class="row"><div class="col-md-8 col-md-offset-4">Загрузка...</div></div>' );
                 
             },
             success: function( data, textStatus, jqXHR ){
                 var $ajax_response = $( data );
-                $( '#product-content-one' ).html( $ajax_response ); 
+                $( cont + cat_val ).html( $ajax_response ); 
             }, 
             error: function( jqXHR, textStatus, errorThrown ){
                 console.log( 'The following error occured: ' + textStatus, errorThrown );   
@@ -100,7 +110,11 @@ $(document).ready(function () {
             complete: function( jqXHR, textStatus ){
             }
         });
-    });                    
+    });         
+        
+        
+    });  
+    }
 });
                
          

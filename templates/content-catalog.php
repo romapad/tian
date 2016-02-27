@@ -8,8 +8,8 @@
 <div class="row">
   <div class="col-md-4">
     <!-- Catalog images galleries -->
-    <div class="product-image" id="product-image-one">
-      <div id="carousel-image" class="carousel slide" data-ride="carousel" data-interval="false">
+    <div class="product-image">
+      <div id="carousel-image-<?php the_ID(); ?>" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner" role="listbox">
 		  <!-- Feutured image -->
           <div class="item active">
@@ -23,11 +23,11 @@
           </div>    
         </div>
         <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-image" role="button" data-slide="prev">
+        <a class="left carousel-control" href="#carousel-image-<?php the_ID(); ?>" role="button" data-slide="prev">
           <span class="icon-prev" aria-hidden="true"></span>
           <span class="sr-only">Назад</span>
         </a>
-        <a class="right carousel-control" href="#carousel-image" role="button" data-slide="next">
+        <a class="right carousel-control" href="#carousel-image-<?php the_ID(); ?>" role="button" data-slide="next">
           <span class="icon-next" aria-hidden="true"></span>
           <span class="sr-only">Вперед</span>
         </a>

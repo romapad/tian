@@ -23,6 +23,7 @@ section:before {
 }
 #catalog {
     background-color: $brand-darkest;
+    min-height: 60em;
 }
 #catalog:before {
     background-image: url(../images/catalog_bg.png);
@@ -45,6 +46,11 @@ section:before {
     background-color: $brand-muted;
     margin: 20px auto 0;
 }
+.nav>li h2 {
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .nav>li a {
     color: #fff;
     text-decoration: none;
@@ -52,11 +58,11 @@ section:before {
 }
 
 /* carousel */
-#carousel-products {
+.carousel-products {
     overflow: hidden;
     height: 130px;
 }
-#carousel-products a {
+.carousel-products a {
     cursor: pointer;
 }
 .carousel-control.right, .carousel-control.left {
