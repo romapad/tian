@@ -38,19 +38,6 @@ p {
     background-color: #fff;
     margin: 20px auto;
 }
-.btn, .btn:hover {
-    background: none;
-    color: $brand-muted;
-    margin-bottom: 0.8em; 
-    border-radius: 0.5em;
-    text-transform: uppercase; 
-    border: 2px solid #fff;
-}
-.btn:active, .btn:active:focus, .btn:active:hover, .btn:focus {
-    color: #fff;
-    background-color: transparent;
-    border-color: $brand-primary;
-}
 .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
     border-color: $brand-primary;
     text-align: center;

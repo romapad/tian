@@ -4,7 +4,7 @@ header.banner {
     display: block;
 }
 header.f-nav{
-    z-index: 9999;
+    z-index: 9;
     position: fixed;
     width: 100%;
     box-shadow: 0px 0px 5px 1px #222;
@@ -47,10 +47,16 @@ nav.nav-primary li a:hover:after {
     background-color: #fff;
     margin: 5px auto 0;
 }
+header.banner select {
+  display: none;
+}
 .phone {
     float: right;
     line-height: 1.8em;
     text-align: center;
+}
+.phone a {
+    display: block;
 }
 .btn.head_but { 
     border: 1px solid #fff;

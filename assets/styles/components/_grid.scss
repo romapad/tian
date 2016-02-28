@@ -9,11 +9,14 @@
   @include make-sm-column($sidebar-sm-columns);
 }
 
-section {
+body > section {
     padding-bottom: 8em;
     position: relative
 }
-section:before {
+section {
+    padding-bottom: 2em;
+}
+body > section:before {
     content: ' ';
     background-size: 100% 100%;
     background-repeat: repeat-x;    
@@ -251,6 +254,9 @@ h2.prod-title {
 }
 #carousel-news .carousel-control .glyphicon-chevron-left, #carousel-news .carousel-control .glyphicon-chevron-right, #carousel-news .carousel-control .icon-next, #carousel-news .carousel-control .icon-prev {
     color: $brand-primary;
+}
+#carousel-news .col-sm-4 {
+    margin-bottom: 2em;
 }
 .news-content {
     height: 100px;

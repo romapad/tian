@@ -6,7 +6,7 @@
 </div>  
 <!-- Catalog content row -->
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-6">
     <!-- Catalog images galleries -->
     <div class="product-image">
       <div id="carousel-image-<?php the_ID(); ?>" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -35,11 +35,11 @@
     </div> 
   </div>  
   <!-- Catalog shor desc & meta -->
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-6">
     <div class="short-desc"><?php the_excerpt(); ?> </div>
     <div class="pict-gallery clearfix">
-      <div class="col-md-4">
-        <?php echo types_render_field( "cat-pictogramm", array( "separator" => "</div><div class='col-md-4'>") ); ?>
+      <div class="col-md-4 col-sm-3 col-xs-3">
+        <?php echo types_render_field( "cat-pictogramm", array( "separator" => "</div><div class='col-md-4 col-sm-3 col-xs-3'>") ); ?>
       </div>
     </div>
     <div class="btngroup">   
@@ -53,13 +53,13 @@
              $attachments = get_posts($args);
             if ($attachments) {
            	  foreach ( $attachments as $attachment ) {
-       		    echo '<a href="'. wp_get_attachment_link($attachment->ID) .'" class="btn btn-default btn-sm">'. apply_filters( 'the_title' , $attachment->post_title ) .' <span class="glyphicon glyphicon-save" aria-hidden="true"></span></a><br>';
+       		    echo '<a href="'. wp_get_attachment_url($attachment->ID) .'" class="btn btn-default btn-sm">'. apply_filters( 'the_title' , $attachment->post_title ) .' <span class="glyphicon glyphicon-save" aria-hidden="true"></span></a><br>';
        	      }
             } ?>                  
     </div>
   </div>
   <!-- Catalog description & order button -->          
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-12">
     <div class="long-desc"><?php the_content(); ?></div>
     <a href="#contact-form" class="btn btn-default btn-sm order-btn" id="<?php the_ID(); ?>">Заказать</a>
   </div>

@@ -7,25 +7,25 @@
   <div class="wrap container" role="document">
     <div class="content row">  
 
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-12">
         <?php while (have_posts()) : the_post(); ?>
           <?php get_template_part('templates/page', 'header'); ?>
         <?php endwhile; ?>
 
-        <div class="col-md-6 homecontent">
+        <div class="col-md-6 col-sm-6 homecontent">
           <div class="homeinner">
             <?php get_template_part('templates/content', 'page'); ?>
           </div>
         </div>
 
-        <div class="col-md-6 homeleft">
+        <div class="col-md-6 col-sm-6 homeleft">
           <?php dynamic_sidebar('sidebar-homeleft'); ?>
         </div>
       </div>
 
       <div class="col-md-4 homeright">
         <?php dynamic_sidebar('sidebar-homeright'); ?>
-        <section class="widget">		
+        <section class="widget col-sm-6">		
           <h3>Новости</h3>
           <?php $args = array ('posts_per_page' => '1',);
             $main_news_query = new WP_Query( $args );
@@ -60,7 +60,7 @@
               } else {
                   $active = "";
               }
-              echo '<li role="presentation" class="'. $active .' col-md-4"><h2><a href="#'. $shop_cat->slug .'" aria-controls="'. $shop_cat->slug .'" role="tab" data-toggle="tab">'. $shop_cat->name .'</a></li>';
+              echo '<li role="presentation" class="'. $active .' col-md-4 col-sm-4 col-xs-12"><h2><a href="#'. $shop_cat->slug .'" aria-controls="'. $shop_cat->slug .'" role="tab" data-toggle="tab">'. $shop_cat->name .'</a></li>';
               $ci++;
           }  
       endif; ?>     
@@ -85,7 +85,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
 	'ajax_cat_preff' => $ajax_cat_preff
 ) );                         
               
-              echo '<div role="tabpanel" class="tab-pane '. $active .'" id="'. $shop_cat->slug .'"><div class="row"><div class="col-md-4">';
+              echo '<div role="tabpanel" class="tab-pane '. $active .'" id="'. $shop_cat->slug .'"><div class="row"><div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-6">';
               
               $slider_args = array (
             	           'post_type'      => array( 'catalog' ),
@@ -112,7 +112,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
                     if($z == 1){ echo ' active'; }
                     echo '"><div class="row">';
                 }
-                echo '<div class="col-sm-3"><a class="thumbnail link-'. $shop_cat->slug .'" rel="'. get_the_ID() .'">';
+                echo '<div class="col-sm-3 col-xs-3"><a class="thumbnail link-'. $shop_cat->slug .'" rel="'. get_the_ID() .'">';
                 if ( has_post_thumbnail() ) {
         	        the_post_thumbnail('thumbnail');
                 } 
@@ -192,7 +192,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
   </div>    
   <div class="wrap container" role="document">
     <div class="content row">  
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-8">
         <div class="row">
           <?php $args = array (
                      	'post_type'              => array( 'partners' ),
@@ -212,7 +212,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
                 }                             
                 $on_region = join( " ", $region_links );
               endif;
-              echo '<div class="col-md-6 partner '. $on_region .'"><div class="media">';
+              echo '<div class="col-md-6 col-sm-6 partner '. $on_region .'"><div class="media">';
               echo '<div class="media-left"><a>';
               if ( has_post_thumbnail() ) {
 	            the_post_thumbnail('thumbnail', array('class' => 'media-object'));
@@ -226,7 +226,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
           wp_reset_postdata();  ?>               
         </div>
       </div>         
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <div class="region-list clearfix">
           <p class="show-regions">Выберите регион</p>
           <ul>
@@ -307,7 +307,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
       <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7EAVjHCxyMnQIbv7SqKXyWjBJVNuCw0G&width=100%&height=400&lang=ru_RU&sourceType=constructor"></script>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <h2>Адрес</h2>
         <p>109444, г. Москва,<br>Сормовский проезд 11/7, стр.1</p>
         <p><b>Телефон:</b> 8 (495) 781 90 93</p>
@@ -318,7 +318,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
            Долгота<br>
            37°48′10″E (37.802643)</p>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-8">
         <h2>Как добираться:</h2>
         <p><b>На машине:</b><br>Съезд с МКАД на Рязанский проспект. Проехать 2.5 км. Въезд на круговой перекресток, третий поворот направо. Проехать 1 км по ул. Академика Скрябина. Далее  повернуть  налево,  на Сормовский проезд.<br>Ехать  400 м до  здания мебельной фабрики  «Кузьминки».</p>
         <p>Съезд с МКАД на Волгоградский проспект. Проехать 2.1 км по Волгоградскому проспекту. Поворот направо (второй светофор), под стрелку. Проехать 800 м по ул. Академика Скрябина. Поворот налево на Сормовский проезд.<br>Ехать  400 м до  здания мебельной фабрики  «Кузьминки».</p>
@@ -327,7 +327,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
       </div>
     </div>
     <div class="row contact-form" id="contact-form">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
         <?php echo do_shortcode('[contact-form-7 id="54" title="contacts"]'); ?>
       </div>
     </div>  

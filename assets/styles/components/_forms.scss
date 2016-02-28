@@ -13,6 +13,24 @@
   @extend .btn;
   @extend .btn-default;
 }
-.form-group {
+#contact-form .form-group {
     text-align: center;
+}
+span.wpcf7-not-valid-tip {
+    margin-top: -2em;
+    text-align: left;
+    margin-left: 1em;
+    background: #fff;
+    height: 1.3em;
+    position: absolute;
+    white-space: nowrap;
+}
+.wpcf7-response-output {
+    background-color: #f0ad4e;
+    padding: .2em .6em .3em;
+    font-weight: 700;
+    color: #fff;
+    vertical-align: baseline;
+    border-radius: .25em;
+    border: none !important;
 }

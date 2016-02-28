@@ -41,11 +41,9 @@ $(document).ready(function () {
             if(checkURL){
                 e.preventDefault();
                 var goPosition = $(content).offset().top - (menuHeight + 10);
-
                 $('html,body').animate({ scrollTop: goPosition}, 'slow'); 
-
             }
-    });   
+    });     
           
     var toggler = $('.news-show');  
     toggler.click(function(){
@@ -76,21 +74,20 @@ $(document).ready(function () {
 	if ( typeof tian_ajax_params === 'undefined' ) {
 		return false;
 	}
-    
 	if ( tian_ajax_params.ajax_cat_preff ) {
-    var tian_cat = tian_ajax_params.ajax_cat_preff;      
-    var link =  'a.link-';
-    var cont =  '#product-content-';   
-    $.each(tian_cat, function(){
-    var cat_val = this.valueOf();    
-    $( link + cat_val ).off( 'click' ).on( 'click', function( e ) { 
-        console.log(link + cat_val);
-        /** Prevent Default Behaviour */
-        e.preventDefault();
-        /** Get Post ID */
-        var post_id = $(this).attr( 'rel' ); 
-        /** Ajax Call */
-        $.ajax({
+      var tian_cat = tian_ajax_params.ajax_cat_preff;      
+      var link =  'a.link-';
+      var cont =  '#product-content-';   
+      $.each(tian_cat, function(){
+        var cat_val = this.valueOf();    
+        $( link + cat_val ).off( 'click' ).on( 'click', function( e ) { 
+          console.log(link + cat_val);
+          /** Prevent Default Behaviour */
+          e.preventDefault();
+          /** Get Post ID */
+          var post_id = $(this).attr( 'rel' ); 
+          /** Ajax Call */
+          $.ajax({
             cache: false,
             timeout: 8000,
             url: php_array.admin_ajax,
@@ -109,12 +106,45 @@ $(document).ready(function () {
             }, 
             complete: function( jqXHR, textStatus ){
             }
-        });
-    });         
-        
-        
-    });  
+          });
+        });             
+      });  
     }
+    
+    // Create the dropdown base
+    $("<select />").appendTo(".banner .container").addClass("form-control");
+    
+    // Create default option "Go to..."
+    $("<option />", {
+       "selected": "selected",
+       "value"   : "",
+       "text"    : "Навигация"
+    }).appendTo(".banner .container select");
+    
+    // Populate dropdown with menu items
+    $("nav.nav-primary a").each(function() {
+     var el = $(this);
+     $("<option />", {
+         "value"   : el.attr("href"),
+         "text"    : el.text()
+     }).appendTo(".banner .container select");
+    });
+    
+    $(".banner .container select").change(function(e) {
+      window.location = $(this).find("option:selected").val();
+             
+       var content = $(this).find("option:selected").val();
+   
+       var checkURL = content.match(/^#([^\/]+)$/i);
+       if(checkURL){
+           e.preventDefault();
+           var goPosition = $(content).offset().top - (menuHeight + 10);
+           console.log(goPosition);
+           $('html,body').animate({ scrollTop: goPosition}, 'slow'); 
+       }        
+        
+    });
+        
 });
                
          
