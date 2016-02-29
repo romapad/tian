@@ -25,7 +25,7 @@
 
       <div class="col-md-4 homeright">
         <?php dynamic_sidebar('sidebar-homeright'); ?>
-        <section class="widget col-sm-6">		
+        <section class="widget col-sm-6 col-md-12">		
           <h3>Новости</h3>
           <?php $args = array ('posts_per_page' => '1',);
             $main_news_query = new WP_Query( $args );

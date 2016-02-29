@@ -81,7 +81,6 @@ $(document).ready(function () {
       $.each(tian_cat, function(){
         var cat_val = this.valueOf();    
         $( link + cat_val ).off( 'click' ).on( 'click', function( e ) { 
-          console.log(link + cat_val);
           /** Prevent Default Behaviour */
           e.preventDefault();
           /** Get Post ID */

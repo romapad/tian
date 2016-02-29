@@ -126,3 +126,23 @@ function theme_post_example_init() {
     
   exit;
 }
+
+
+function get_pdf_array() {
+    $args = array( 
+	  'post_mime_type' => array('application/pdf', 'application/zip'),
+      'post_type'      => 'attachment', 
+      'numberposts'    => -1, 
+      'post_status'    => null
+    );
+    $attachments = get_posts($args);
+    
+    foreach ( $attachments as $attachment ) {
+    
+      $attach_link = str_replace( WP_HOME, '', wp_get_attachment_url($attachment->ID) );  ;
+      $attach_title = apply_filters( 'the_title' , $attachment->post_title );
+      $attach_array[$attach_title] = $attach_link;
+    
+    }
+    return $attach_array;
+}
