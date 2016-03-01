@@ -218,10 +218,11 @@ h2.prod-title {
 }
 .region-list ul li {
     color: $brand-primary;
-    padding: 0.5em;
+    padding: 0.4em;
     float: left;
     clear: both;
     cursor: pointer;
+    margin-bottom: 0.1em;
 }
 .region-list ul li:hover, .region-list ul li#selected {
     color: #fff;
