@@ -79,13 +79,13 @@
               } else {
                   $active = "";
               }
-
-$ajax_cat_preff[] = $shop_cat->slug;              
-wp_localize_script( 'sage/js', 'tian_ajax_params', array(
-	'ajax_cat_preff' => $ajax_cat_preff
-) );                         
+              $current_cat = $shop_cat->slug;
+              $ajax_cat_preff[] = $shop_cat->slug;              
+              wp_localize_script( 'sage/js', 'tian_ajax_params', array(
+              	'ajax_cat_preff' => $ajax_cat_preff
+              ) );                         
               
-              echo '<div role="tabpanel" class="tab-pane '. $active .'" id="'. $shop_cat->slug .'"><div class="row"><div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-6">';
+              echo '<div role="tabpanel" class="tab-pane '. $active .'" id="'. $current_cat .'"><div class="row"><div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-6">';
               
               $slider_args = array (
             	           'post_type'      => array( 'catalog' ),
@@ -94,15 +94,15 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
             	               array(
             	               	'taxonomy'  => 'catalog_cat',
             	               	'field'     => 'slug',
-            	               	'terms'     => $shop_cat->slug),
+            	               	'terms'     => $current_cat),
             	           ),
               );
               $tian_cat_one = new WP_Query( $slider_args );
               if ( $tian_cat_one->have_posts() ) {
-              $z = 1;        
-              $count_shop = wp_count_posts('catalog');
-              $published_shop = $count_shop->publish; ?>                   
-        <div id="carousel-products-<?php echo $shop_cat->slug; ?>" class="carousel slide carousel-products" data-ride="carousel">
+                  
+              $z = 1;     
+              $published_shop = $shop_cat->count; ?>               
+        <div id="carousel-products-<?php echo $current_cat; ?>" class="carousel slide carousel-products" data-ride="carousel" data="<?php echo $published_shop ; ?>">
           <!-- Wrapper for slides -->  
           <div class="carousel-inner" role="listbox">
         	<?php while ( $tian_cat_one->have_posts() ) {
@@ -112,11 +112,11 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
                     if($z == 1){ echo ' active'; }
                     echo '"><div class="row">';
                 }
-                echo '<div class="col-sm-3 col-xs-3"><a class="thumbnail link-'. $shop_cat->slug .'" rel="'. get_the_ID() .'">';
+                echo '<div class="col-sm-3 col-xs-3"><a class="thumbnail link-'. $current_cat .'" rel="'. get_the_ID() .'">';
                 if ( has_post_thumbnail() ) {
         	        the_post_thumbnail('thumbnail');
                 } 
-                echo '</a><p><a class="link-'. $shop_cat->slug .'" rel="'. get_the_ID() .'">';
+                echo '</a><p><a class="link-'. $current_cat .'" rel="'. get_the_ID() .'" data="'. $z .'">';
                 the_title();
                 echo '</a></p></div>';
                 if(($z % 4 == 0) || ($z == $published_shop)) {
@@ -125,11 +125,11 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
             } ?>      
           </div>
           <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-products-<?php echo $shop_cat->slug; ?>" role="button" data-slide="prev">
+          <a class="left carousel-control" href="#carousel-products-<?php echo $current_cat; ?>" role="button" data-slide="prev">
             <span class="icon-prev" aria-hidden="true"></span>
             <span class="sr-only">Назад</span>
           </a>
-          <a class="right carousel-control" href="#carousel-products-<?php echo $shop_cat->slug; ?>" role="button" data-slide="next">
+          <a class="right carousel-control" href="#carousel-products-<?php echo $current_cat; ?>" role="button" data-slide="next">
             <span class="icon-next" aria-hidden="true"></span>
             <span class="sr-only">Вперед</span>
           </a>
@@ -139,7 +139,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
               
     echo '</div></div>'; 
               
-    echo '<div id="product-content-'. $shop_cat->slug .'" class="product-content">';
+    echo '<div id="product-content-'. $current_cat .'" class="product-content">';
         $args = array (
         	'post_type'              => array( 'catalog' ),
         	'posts_per_page'         => '1',
@@ -147,7 +147,7 @@ wp_localize_script( 'sage/js', 'tian_ajax_params', array(
         	    array(
         	    	'taxonomy' => 'catalog_cat',
         	    	'field'    => 'slug',
-        	    	'terms'    => $shop_cat->slug
+        	    	'terms'    => $current_cat
         	    ),
         	),
         );
