@@ -20,18 +20,21 @@
       init: function() {
         // JavaScript to be fired on all pages
 
-            var nav = $('header.banner');
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 60) {
-                    //nav.addClass("f-nav");
-                    nav.addClass("f-nav").fadeIn().animate({paddingBottom:"10px", paddingTop: "5px"}, 200);
-                } else {
-                    //nav.removeClass("f-nav");
-                    nav.removeClass("f-nav").animate({paddingBottom:"15px", paddingTop: "10px"}, 200);
-                }
-            });
             
 $(document).ready(function () {
+    
+    var nav    = $('header.banner');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 60) {
+            //nav.addClass("f-nav");
+            nav.addClass("f-nav").fadeIn().animate({paddingBottom:"10px", paddingTop: "5px"}, 200);
+            
+        } else {
+            //nav.removeClass("f-nav");
+            nav.removeClass("f-nav").animate({paddingBottom:"15px", paddingTop: "10px"}, 200);
+        }
+    });    
+    
     var menuHeight = $('header.banner').height(); 
     $('#menu-main li a').click(function(e){
 
@@ -42,6 +45,8 @@ $(document).ready(function () {
                 e.preventDefault();
                 var goPosition = $(content).offset().top - (menuHeight + 10);
                 $('html,body').animate({ scrollTop: goPosition}, 'slow'); 
+                $('#menu-main li a').removeClass('selected');
+                $(this).addClass('selected');
             }
     });     
           
@@ -49,6 +54,7 @@ $(document).ready(function () {
     toggler.click(function(){
       var news_content = $(this).siblings('.news-content'); 
       var news_hide = $(this).siblings('.news-hide'); 
+        
       if(news_content.hasClass('news-hide')) {
         news_content.animate({height:100},500).removeClass('news-hide');
         $(this).text('Читать далее...');  
@@ -56,13 +62,15 @@ $(document).ready(function () {
         news_content.animate({height:'100%'},500).addClass('news-hide');
         $(this).text('Свернуть');            
       }    
+        
     });     
     
     var region_obj = $('.region-list ul li');
-    region_obj.click(function(){
-        var partner = $('#partners .partner'); 
-        partner.show();
-        var reg_slug = $(this).attr('class'); 
+    var partner = $('#partners .partner');    
+    region_obj.click(function(){ 
+        var reg_slug = $(this).attr('class');
+        
+        partner.show(); 
         partner.not("." + reg_slug).toggle();  
         region_obj.removeAttr('id', 'selected');        
         $(this).attr('id', 'selected');        
@@ -138,11 +146,46 @@ $(document).ready(function () {
        if(checkURL){
            e.preventDefault();
            var goPosition = $(content).offset().top - (menuHeight + 10);
-           console.log(goPosition);
            $('html,body').animate({ scrollTop: goPosition}, 'slow'); 
        }        
         
     });
+    
+    $("a.order-btn").click(function() { 
+        
+        var prodName = $(this).parents().find('.prod-title').text();
+        var productName = $('#product-name');
+        var productNameHidden = $('#product-name-hidden');
+        productName.text('Заказать: ' + prodName);
+        productNameHidden.val(prodName);
+                          
+    });
+    
+    
+    $('#aboutCarousel').carousel({
+      interval: 4000
+    });
+
+    $('#aboutCarousel .item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        if (next.next().length > 0) {
+            next.next().children(':first-child').clone().appendTo($(this));
+        }
+        else {
+            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+        }
+        if (next.next().next().length > 0) {
+            next.next().next().children(':first-child').clone().appendTo($(this));
+        }
+        else {
+            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+        }        
+    }); 
         
 });
                

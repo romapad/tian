@@ -50,12 +50,12 @@
              if($pdf_links) {
                 foreach ( $pdf_links as $pdf_link ) {
                 $parsed_url  = str_replace( WP_HOME, '', $pdf_link );    
-                $pdf_array[] = $parsed_url;   
+                $pdf_array[$parsed_url] = '';   
                 }
                 
                 $attach_array = Roots\Sage\Extras\get_pdf_array();
-                $pdf_results = array_intersect($attach_array,$pdf_array);
-                foreach ($pdf_results as $pdf_title => $pdf_link) {
+                $pdf_results = array_intersect_key($attach_array,$pdf_array);
+                foreach ($pdf_results as $pdf_link => $pdf_title) {
                     echo '<a href="'. $pdf_link .'" class="btn btn-default btn-sm">'. $pdf_title .' <span class="glyphicon glyphicon-save" aria-hidden="true"></span></a><br>'; 
                 } 
                  
@@ -64,7 +64,7 @@
   </div>
   <!-- Catalog description & order button -->          
   <div class="col-md-4 col-sm-12">
-    <div class="long-desc"><?php the_content(); ?></div>
+    <div class="long-desc"><?php if(has_excerpt()) { the_content(); } else {} ?></div>
     <a href="#contact-form" class="btn btn-default btn-sm order-btn" id="<?php the_ID(); ?>">Заказать</a>
   </div>
 </div>

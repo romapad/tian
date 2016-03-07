@@ -1,4 +1,3 @@
-<div id="home"></div>
  <header class="banner">
   <div class="container">
     <a class="brand" href="<?= esc_url(home_url('/')); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/logo.png" alt=""><?php bloginfo('name'); ?></a>

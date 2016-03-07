@@ -16,15 +16,27 @@
     margin: 0 20px 0 0;
     padding: 40% 30%;
 }
+.homeleft section:before {
+    border-left: 1px dotted #c4501e;
+    height: 120px;
+    left: 45px;
+    z-index: -1;
+    bottom: 3em;
+    float: left;
+    margin-left: 28px;  
+}
+.homeleft section:last-child:before {
+    height: auto;
+}
 .homeleft section,
 .homeright section {
     margin-bottom: 30px;
     @include clearfix;
 }
 .homeleft section {
-    height: 150px;
+    height: 120px;
     margin-bottom: 0;
-    padding-bottom: 4em;
+    padding-bottom: 2em;
 }
 .homeleft section h3 {
     font-size: 16px;
@@ -33,13 +45,14 @@
 .homeleft section .textwidget {
     padding-left: 75px;
     margin-top: 5px;
+    font-size: 12px;
 }
 .homeleft img {
     float: left;
     margin: -25px 20px 0 -77px;
 }
 .homeright {
-    margin-top: 60px;
+    margin-top: 80px;
     text-align: center;    
 }
 .homeright section {

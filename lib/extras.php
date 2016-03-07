@@ -141,8 +141,40 @@ function get_pdf_array() {
     
       $attach_link = str_replace( WP_HOME, '', wp_get_attachment_url($attachment->ID) );  ;
       $attach_title = apply_filters( 'the_title' , $attachment->post_title );
-      $attach_array[$attach_title] = $attach_link;
+      $attach_array[$attach_link] = $attach_title;
     
     }
     return $attach_array;
 }
+
+
+// Register Slider Post Type
+function custom_slider_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Слайды', 'Post Type General Name', 'sage' ),
+		'singular_name'         => _x( 'Слайд', 'Post Type Singular Name', 'sage' ),
+		'menu_name'             => __( 'Слайды', 'sage' ),
+
+	);
+	$args = array(
+		'label'                 => 'Слайд',
+		'description'           => 'Слайды',
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-format-gallery',
+		'show_in_admin_bar'     => false,
+		'show_in_nav_menus'     => false,
+		'can_export'            => true,
+		'has_archive'           => false,		
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true
+	);
+	register_post_type( 'slider', $args );
+
+}
+add_action( 'init', __NAMESPACE__ . '\\custom_slider_post_type', 0 );

@@ -48,7 +48,7 @@ function setup() {
   // To add custom styles edit /assets/styles/layouts/_tinymce.scss
   add_editor_style(Assets\asset_path('styles/main.css'));
 
-  add_theme_support('woocommerce');
+  add_image_size('about', 270, 180, true);
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
 
@@ -57,7 +57,7 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
  */
 function widgets_init() {
   register_sidebar([
-    'name'          => __('About', 'sage'),
+    'name'          => 'О нас',
     'id'            => 'sidebar-about',
     'before_widget' => '<section class="widget %1$s %2$s col-md-4">',
     'after_widget'  => '</section>',
@@ -66,7 +66,7 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('About Bottom', 'sage'),
+    'name'          => 'О нас, нижняя часть',
     'id'            => 'sidebar-about-bottom',
     'before_widget' => '',
     'after_widget'  => '',
@@ -75,8 +75,8 @@ function widgets_init() {
   ]);    
     
   register_sidebar([
-    'name'          => __('Home Left', 'sage'),
-    'id'            => 'sidebar-homeleft',
+    'name'          => 'Первый экран, слева',
+    'id'            => 'sidebar-home-left',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
@@ -84,8 +84,8 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Home right', 'sage'),
-    'id'            => 'sidebar-homeright',
+    'name'          => 'Первый экран, справа',
+    'id'            => 'sidebar-home-right',
     'before_widget' => '<section class="widget %1$s %2$s col-sm-6 col-md-12">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
@@ -93,13 +93,21 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Footer', 'sage'),
-    'id'            => 'sidebar-footer',
+    'name'          => 'Контакты, слева',
+    'id'            => 'sidebar-footer-left',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
   ]);
+  register_sidebar([
+    'name'          => 'Контакты, справа',
+    'id'            => 'sidebar-footer-right',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2>',
+    'after_title'   => '</h2>'
+  ]);    
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 

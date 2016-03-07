@@ -19,12 +19,12 @@
         </div>
 
         <div class="col-md-6 col-sm-6 homeleft">
-          <?php dynamic_sidebar('sidebar-homeleft'); ?>
+          <?php dynamic_sidebar('sidebar-home-left'); ?>
         </div>
       </div>
 
       <div class="col-md-4 homeright">
-        <?php dynamic_sidebar('sidebar-homeright'); ?>
+        <?php dynamic_sidebar('sidebar-home-right'); ?>
         <section class="widget col-sm-6 col-md-12">		
           <h3>Новости</h3>
           <?php $args = array ('posts_per_page' => '1',);
@@ -175,6 +175,50 @@
     <h2 class="page-header">О компании</h2>    
   </div>    
   <div class="wrap container" role="document">
+<div class="row">
+    <div class="col-md-12">
+       
+    <?php $args = array (
+    	          'posts_per_page'  => '-1',
+                  'post_type'       => 'slider'
+          );
+          $tian_slider = new WP_Query( $args );
+          if ( $tian_slider->have_posts() ) {
+          $i = 1;           
+    ?>
+    <div class="carousel slide" id="aboutCarousel">
+      <div class="carousel-inner onebyone-carosel" role="listbox">
+	    <?php while ( $tian_slider->have_posts() ) {
+		  $tian_slider->the_post(); 
+            echo '<div class="item';
+            if($i == 1){ echo ' active'; }
+            echo '">';
+            echo '<div class="col-lg-3 col-xs-3 col-md-3 col-sm-3"><a class="thumbnail" href="">';
+            if ( has_post_thumbnail() ) {
+	            the_post_thumbnail('about', array('class' => 'center-block img-responsive'));
+            } 
+            echo '</a>';
+            echo '</div></div>';
+            $i++;
+	    } ?>
+      </div>       
+      <!-- Controls -->
+      <a class="left carousel-control" href="#aboutCarousel" role="button" data-slide="prev">
+        <span class="icon-prev" aria-hidden="true"></span>
+        <span class="sr-only">Назад</span>
+      </a>
+      <a class="right carousel-control" href="#aboutCarousel" role="button" data-slide="next">
+        <span class="icon-next" aria-hidden="true"></span>
+        <span class="sr-only">Вперед</span>
+      </a>
+        </div>
+    <?php } else { }
+    wp_reset_postdata(); ?>         
+    </div>
+</div>
+   
+   
+   
     <div class="content row">  
       <?php dynamic_sidebar('sidebar-about'); ?>   
     </div><!-- /.content -->
@@ -232,7 +276,7 @@
           <ul>
             <?php $regions = get_terms( 'region', array(
                     'orderby'    => 'name',
-                    'hide_empty' => 0
+                    'hide_empty' => 1
                   ));
                 if ( $regions && ! is_wp_error( $regions ) ) : 
                 foreach ( $regions as $region ) {
@@ -308,22 +352,10 @@
     </div>
     <div class="row">
       <div class="col-md-4 col-sm-4">
-        <h2>Адрес</h2>
-        <p>109444, г. Москва,<br>Сормовский проезд 11/7, стр.1</p>
-        <p><b>Телефон:</b> 8 (495) 781 90 93</p>
-        <p><b>E-mail:</b> info@tianrun-group.com</p>
-        <p><b>GPS - координаты:</b><br>
-           Широта<br>
-           55°42′25″N (55.706873) <br>
-           Долгота<br>
-           37°48′10″E (37.802643)</p>
+          <?php dynamic_sidebar('sidebar-footer-left'); ?>
       </div>
       <div class="col-md-8 col-sm-8">
-        <h2>Как добираться:</h2>
-        <p><b>На машине:</b><br>Съезд с МКАД на Рязанский проспект. Проехать 2.5 км. Въезд на круговой перекресток, третий поворот направо. Проехать 1 км по ул. Академика Скрябина. Далее  повернуть  налево,  на Сормовский проезд.<br>Ехать  400 м до  здания мебельной фабрики  «Кузьминки».</p>
-        <p>Съезд с МКАД на Волгоградский проспект. Проехать 2.1 км по Волгоградскому проспекту. Поворот направо (второй светофор), под стрелку. Проехать 800 м по ул. Академика Скрябина. Поворот налево на Сормовский проезд.<br>Ехать  400 м до  здания мебельной фабрики  «Кузьминки».</p>
-        <p><b>Общественным транспортом:</b><br>Метро Выхино<br>Выход из метро в сторону Государственного университета управления. Прямо пешком 350 м. Перейти Рязанский проспект. Маршрутное такси 291М до остановки  «Автосалон Автогермес» (5 минут). Направо 300 м.<br>Здание мебельной фабрики «Кузьминки».</p>
-        <p>Метро Рязанский проспект<br>Автобусы:  51, 208 или маршрутное такси 351М до остановки Ферганская ул. 5. Направо 400 м.<br>Здание мебельной фабрики «Кузьминки».  </p>
+          <?php dynamic_sidebar('sidebar-footer-right'); ?>
       </div>
     </div>
     <div class="row contact-form" id="contact-form">
