@@ -153,11 +153,19 @@ $(document).ready(function () {
     
     $("a.order-btn").click(function() { 
         
-        var prodName = $(this).parents().find('.prod-title').text();
-        var productName = $('#product-name');
+        var prodName          = $(this).parents().find('.prod-title').text();
+        var productName       = $('#product-name');
         var productNameHidden = $('#product-name-hidden');
-        productName.text('Заказать: ' + prodName);
+        var closeOrder        = ('<span class="close-order text-right label label-warning">x</span>');
+        productName.text('Заказать: ' + prodName + ' ').addClass('has-value');
         productNameHidden.val(prodName);
+        $(closeOrder).appendTo(productName);
+        
+        $('.close-order').click(function() {
+            productName.empty();
+            productNameHidden.val('');
+            $(this).hide;
+        });
                           
     });
     

@@ -25,6 +25,9 @@ body#tinymce {
     }
     .homecontent {
         padding: 60px 20px 2em 70px;
+    } 
+    .homeleft:before {
+        height: 412px;
     }    
     .homeleft section {
         height: auto;
@@ -59,6 +62,9 @@ body#tinymce {
     .homecontent {
         padding: 0 0 2em;
     }
+    .homeleft:before {
+        height: 361px;
+    }    
     .product-content {
         margin-top: 0;
     }
