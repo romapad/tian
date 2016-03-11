@@ -72,6 +72,16 @@ body > section:before {
 .carousel-products a {
     cursor: pointer;
 }
+.carousel-products .item .row {
+    margin: 0;
+}
+.carousel-products .item .row > div {
+    padding-left: 0;
+    padding-right: 0;
+}
+.carousel-products .item .row > div p {
+    padding: 0 10px;
+}
 .carousel-control {
     text-shadow: none;
 }
@@ -80,14 +90,18 @@ body > section:before {
     filter: none;
     width: 10%;
 }
-.carousel-control .icon-prev:before, 
+.carousel-control .icon-next, .carousel-control .icon-prev {
+    font-family: 'Glyphicons Halflings';
+}
 .carousel-control .icon-next:before {
-    font-family: open sans;
-    font-size: 1.5em;
-    font-weight: 300;
+    content: "\e258";
+}
+.carousel-control .icon-prev:before {
+    content: "\e257";
 }
 .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
-    margin-top: -40px;
+    margin-top: -25px;
+    font-size: 1.3em;
 }
 .thumbnail, .wp-caption {
     padding: 0;

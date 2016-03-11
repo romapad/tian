@@ -27,11 +27,11 @@ $(document).ready(function () {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 60) {
             //nav.addClass("f-nav");
-            nav.addClass("f-nav").fadeIn().animate({paddingBottom:"10px", paddingTop: "5px"}, 200);
+            nav.addClass("f-nav");
             
         } else {
             //nav.removeClass("f-nav");
-            nav.removeClass("f-nav").animate({paddingBottom:"15px", paddingTop: "10px"}, 200);
+            nav.removeClass("f-nav");
         }
     });    
     
@@ -43,7 +43,7 @@ $(document).ready(function () {
             var checkURL = content.match(/^#([^\/]+)$/i);
             if(checkURL){
                 e.preventDefault();
-                var goPosition = $(content).offset().top - (menuHeight + 10);
+                var goPosition = $(content).offset().top - (menuHeight - 5);
                 $('html,body').animate({ scrollTop: goPosition}, 'slow'); 
                 $('#menu-main li a').removeClass('selected');
                 $(this).addClass('selected');
@@ -164,7 +164,7 @@ $(document).ready(function () {
         $('.close-order').click(function() {
             productName.empty();
             productNameHidden.val('');
-            $(this).hide;
+            $(this).hide();
         });
                           
     });

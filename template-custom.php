@@ -126,11 +126,11 @@
           </div>
           <!-- Controls -->
           <a class="left carousel-control" href="#carousel-products-<?php echo $current_cat; ?>" role="button" data-slide="prev">
-            <span class="icon-prev" aria-hidden="true"></span>
+            <span class="icon-prev glyphicon glyphicon-menu-left" aria-hidden="true"></span>
             <span class="sr-only">Назад</span>
           </a>
           <a class="right carousel-control" href="#carousel-products-<?php echo $current_cat; ?>" role="button" data-slide="next">
-            <span class="icon-next" aria-hidden="true"></span>
+            <span class="icon-next glyphicon glyphicon-menu-right" aria-hidden="true"></span>
             <span class="sr-only">Вперед</span>
           </a>
         </div>               
@@ -204,11 +204,11 @@
       </div>       
       <!-- Controls -->
       <a class="left carousel-control" href="#aboutCarousel" role="button" data-slide="prev">
-        <span class="icon-prev" aria-hidden="true"></span>
+        <span class="icon-prev glyphicon glyphicon-menu-left" aria-hidden="true"></span>
         <span class="sr-only">Назад</span>
       </a>
       <a class="right carousel-control" href="#aboutCarousel" role="button" data-slide="next">
-        <span class="icon-next" aria-hidden="true"></span>
+        <span class="icon-next glyphicon glyphicon-menu-right" aria-hidden="true"></span>
         <span class="sr-only">Вперед</span>
       </a>
         </div>
@@ -329,11 +329,11 @@
       </div>
       <!-- Controls -->
       <a class="left carousel-control" href="#carousel-news" role="button" data-slide="prev">
-        <span class="icon-prev" aria-hidden="true"></span>
+        <span class="icon-prev glyphicon glyphicon-menu-left" aria-hidden="true"></span>
         <span class="sr-only">Назад</span>
       </a>
       <a class="right carousel-control" href="#carousel-news" role="button" data-slide="next">
-        <span class="icon-next" aria-hidden="true"></span>
+        <span class="icon-next glyphicon glyphicon-menu-right" aria-hidden="true"></span>
         <span class="sr-only">Вперед</span>
       </a>
     </div>                                    
