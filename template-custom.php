@@ -33,7 +33,7 @@
               while ( $main_news_query->have_posts() ) {
                 $main_news_query->the_post();
              	the_excerpt();
-                echo '<a href="/#news">Читать все новости</a>';
+                echo '<a href="/#news" class="gotonews">Читать все новости</a>';
               }
             } else { }
             wp_reset_postdata(); ?>            

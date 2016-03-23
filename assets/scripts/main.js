@@ -48,6 +48,11 @@ $(document).ready(function () {
                 $('#menu-main li a').removeClass('selected');
                 $(this).addClass('selected');
             }
+    });  
+    $('.gotonews').click(function(e){
+
+        var goPosition = $('#news').offset().top - (menuHeight - 5);
+        $('html,body').animate({ scrollTop: goPosition}, 'slow'); 
     });     
           
     var toggler = $('.news-show');  
